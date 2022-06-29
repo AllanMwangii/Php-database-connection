@@ -32,6 +32,7 @@ if( isset($_POST["subscribe"]))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="bootstrap-5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOTSTRAP</title>
 </head>
@@ -47,7 +48,7 @@ if( isset($_POST["subscribe"]))
             <div class="navbar-nav">
                 <a href="index.php" class="nav-link ">Home</a>
                 <a href="about.php" class="nav-link active">About Us</a>
-                <a href="#" class="nav-link">Contact Us</a>
+                <a href="register.php"class="nav-link btn btn-primary">Register now</a>
             </div>
          </div>
         </div>

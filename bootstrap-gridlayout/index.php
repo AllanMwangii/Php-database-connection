@@ -1,41 +1,12 @@
-<?php
-$server="localhost";
-$username="root";
-$password="";
-$database="zalego";
-
-$conn=mysqli_connect($server,$username,$password,$database);
-
-if( isset($_POST['submitbutton']))
-{
-    //1. fetch form data
-    $firstname =$_POST['firstname'];
-    $lastname =$_POST['lastname'];
-    $email =$_POST['email'];
-    $phonenumber =$_POST['phonenumber'];
-    $message =$_POST['message'];
-    //2. submit form data
-    $insertData = mysqli_query($conn, "INSERT INTO 
-    contactus(firstname,lastname,email,phonenumber,message)
-    VALUES('$firstname','$lastname','$email','$phonenumber','$message')");
-
-    if($insertData)
-    {
-        echo "Data Submitted Successfully";
-    }
-    else{
-        echo "Error Occured";
-    }
-    
-}
+<?php include("process.php")
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="bootstrap-5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Grid Layout</title>
 </head>
@@ -51,13 +22,13 @@ if( isset($_POST['submitbutton']))
            <div class="navbar-nav">
                <a href="index.php" class="nav-link active">Home</a>
                <a href="about.php" class="nav-link">About Us</a>
-               <a href="#" class="nav-link">Contact Us</a>
+               <a href="register.php" class="nav-link btn btn-primary">Register now</a>
            </div>
         </div>
        </div>
     </nav> 
     <!--End navigation bar-->
-<main class="p-5 mb-4 bg-warning rounded-8 mt-4">
+<main class="p-5 mb-4 bg-success rounded-8 mt-4">
     <h1>Welcome, Allan Mwangi</h1>
    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla inventore neque quidem vitae illum hic autem unde mollitia blanditiis molestias. Officia, assumenda ipsa? Adipisci quis dignissimos officiis ipsa placeat iure neque illo harum architecto, veritatis ab ex. Optio ipsum nobis quisquam maiores sapiente quos! Dolorum in minus voluptate explicabo doloremque rerum quaerat natus dolore rem, at numquam nisi deleniti voluptatibus similique quisquam, maiores maxime nulla distinctio adipisci ratione, est minima qui optio reiciendis? Consequatur similique laudantium temporibus, ea unde placeat cupiditate animi ut asperiores est consequuntur sit cumque dolorem eaque doloribus? Ad aspernatur incidunt, odit modi magnam mollitia quo eaque.</p>
 <button class="btn btn-primary">learn more</button>
@@ -87,7 +58,11 @@ if( isset($_POST['submitbutton']))
             <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur neque praesentium veritatis laboriosam eveniet vitae tempore dicta iste eum rem delectus quia quae consequatur, suscipit aperiam ipsum molestiae quidem similique necessitatibus cum id voluptatibus fugiat. Cum saepe culpa officia quia doloribus quod itaque labore exercitationem?   </p>
             <form action="index.php" method="POST">
-            <div class="row">
+                    <?php if($responce){
+                        include('responce.php');
+                    }?>
+          
+            <div class="row pt-5 ">
                 <div class="mb-3 col-lg-6">
                     <label for="firstname" class="FormLabel">First Name</label>
                     <input type="text" name="firstname" class="form-control" placeholder="Enter Your Name">
